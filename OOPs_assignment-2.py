@@ -1,3 +1,4 @@
+# CONSTRUCTOR
 # 1. Constructor in Python
 A **constructor** in Python is a special method used to initialize objects. The constructor is called automatically when a new object of a class is created. In Python, the `__init__` method serves as the constructor.
 
@@ -140,4 +141,192 @@ class Car:
 
     def display(self):
         return f"Car Make: {self.make}, Model: {self.model}"
+```
+
+# INHERITANCE
+# 1. Inheritance in Python
+**Inheritance** allows a class (child) to acquire properties and methods from another class (parent). It promotes code reusability and logical hierarchy.
+
+# 2. Single vs Multiple Inheritance
+- **Single Inheritance:** Child inherits from one parent.
+```python
+class Parent:
+    pass
+
+class Child(Parent):
+    pass
+```
+- **Multiple Inheritance:** Child inherits from multiple parents.
+```python
+class Parent1:
+    pass
+
+class Parent2:
+    pass
+
+class Child(Parent1, Parent2):
+    pass
+```
+
+# 3. `Vehicle` and `Car` Classes
+```python
+class Vehicle:
+    def __init__(self, color, speed):
+        self.color = color
+        self.speed = speed
+
+class Car(Vehicle):
+    def __init__(self, color, speed, brand):
+        super().__init__(color, speed)
+        self.brand = brand
+
+car = Car("Red", 120, "Toyota")
+```
+
+# 4. Method Overriding
+```python
+class Parent:
+    def show(self):
+        print("Parent method")
+
+class Child(Parent):
+    def show(self):
+        print("Child method")
+```
+
+# 5. Accessing Parent Attributes
+```python
+class Parent:
+    def greet(self):
+        print("Hello from Parent")
+
+class Child(Parent):
+    def greet_parent(self):
+        super().greet()
+```
+
+# 6. `super()` Function
+Used to call parent class methods.
+
+# 7. `Animal`, `Dog`, and `Cat` Classes
+```python
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+```
+
+# 8. `isinstance()` Function
+Checks if an object is an instance of a class.
+
+# 9. `issubclass()` Function
+Checks if a class is derived from another class.
+```python
+issubclass(Dog, Animal)  # True
+```
+
+# 10. Constructor Inheritance
+Child class can inherit the constructor of the parent using `super()`.
+
+# 11. `Shape`, `Circle`, and `Rectangle` Classes
+```python
+import math
+
+class Shape:
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+```
+
+# 12. Abstract Base Classes
+```python
+from abc import ABC, abstractmethod
+
+class AbstractShape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+```
+
+# 13. Prevent Modifications
+Use double underscore `__` to make attributes private.
+
+# 14. `Employee` and `Manager` Classes
+```python
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+```
+
+# 15. Method Overloading vs Overriding
+- **Overloading:** Same method name with different parameters (not native in Python).
+- **Overriding:** Child class modifies parent method behavior.
+
+# 16. `__init__()` in Inheritance
+Initializes attributes in both parent and child classes.
+
+# 17. `Bird`, `Eagle`, and `Sparrow` Classes
+```python
+class Bird:
+    def fly(self):
+        print("Bird is flying")
+
+class Eagle(Bird):
+    def fly(self):
+        print("Eagle soars high")
+
+class Sparrow(Bird):
+    def fly(self):
+        print("Sparrow flutters")
+```
+
+# 18. Diamond Problem
+Occurs in multiple inheritance. Python resolves it using the Method Resolution Order (MRO).
+
+# 19. "is-a" and "has-a" Relationships
+- **is-a:** Inheritance relationship (e.g., `Car is-a Vehicle`).
+- **has-a:** Composition relationship (e.g., `Car has-a Engine`).
+
+# 20. University System Class Hierarchy
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+class Student(Person):
+    def __init__(self, name, student_id):
+        super().__init__(name)
+        self.student_id = student_id
+
+class Professor(Person):
+    def __init__(self, name, department):
+        super().__init__(name)
+        self.department = department
 ```
