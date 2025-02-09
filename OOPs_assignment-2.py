@@ -330,3 +330,155 @@ class Professor(Person):
         super().__init__(name)
         self.department = department
 ```
+# ENCAPSULATION
+# 1. Encapsulation in Python
+**Encapsulation** is the bundling of data with methods that operate on that data. It restricts direct access to some of an object's components, enhancing security and control.
+
+# 2. Key Principles of Encapsulation
+- **Access Control:** Defines how data can be accessed.
+- **Data Hiding:** Prevents unintended interference by restricting access.
+
+# 3. Achieving Encapsulation in Python
+```python
+class Example:
+    def __init__(self):
+        self.__hidden = 0  # Private attribute
+
+    def get_hidden(self):
+        return self.__hidden
+
+    def set_hidden(self, value):
+        self.__hidden = value
+```
+
+# 4. Access Modifiers
+- **Public:** Accessible from anywhere (`name`).
+- **Protected:** Intended for subclass use (`_name`).
+- **Private:** Not directly accessible (`__name`).
+
+# 5. `Person` Class with Private Attribute
+```python
+class Person:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+```
+
+# 6. Getter and Setter Methods
+Control access and modification of private attributes.
+
+# 7. Name Mangling
+Python changes private attribute names to include the class name to avoid conflicts.
+
+# 8. `BankAccount` Class
+```python
+class BankAccount:
+    def __init__(self, account_number, balance=0):
+        self.__account_number = account_number
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+```
+
+# 9. Advantages of Encapsulation
+- Improves code maintainability
+- Enhances security
+- Simplifies debugging
+
+# 10. Accessing Private Attributes
+```python
+obj = Example()
+print(obj._Example__hidden)  # Access via name mangling
+```
+
+# 11. School System Class Hierarchy
+```python
+class Student:
+    def __init__(self, name, grade):
+        self.__name = name
+        self.__grade = grade
+
+class Teacher:
+    def __init__(self, name, subject):
+        self.__name = name
+        self.__subject = subject
+
+class Course:
+    def __init__(self, title):
+        self.__title = title
+```
+
+# 12. Property Decorators
+```python
+class Example:
+    def __init__(self, value):
+        self.__value = value
+
+    @property
+    def value(self):
+        return self.__value
+
+    @value.setter
+    def value(self, value):
+        self.__value = value
+```
+
+# 13. Data Hiding
+Protects data from unauthorized access.
+
+# 14. `Employee` Class
+```python
+class Employee:
+    def __init__(self, employee_id, salary):
+        self.__employee_id = employee_id
+        self.__salary = salary
+
+    def calculate_bonus(self):
+        return self.__salary * 0.1
+```
+
+# 15. Accessors and Mutators
+Control attribute access, enforcing rules.
+
+# 16. Drawbacks of Encapsulation
+- Increased complexity
+- Overhead from getter/setter methods
+
+# 17. Library System Class
+```python
+class Book:
+    def __init__(self, title, author, available=True):
+        self.__title = title
+        self.__author = author
+        self.__available = available
+```
+
+# 18. Encapsulation and Code Reusability
+Promotes modular, maintainable code.
+
+# 19. Information Hiding
+Essential for security and preventing misuse.
+
+# 20. `Customer` Class
+```python
+class Customer:
+    def __init__(self, name, address, contact):
+        self.__name = name
+        self.__address = address
+        self.__contact = contact
+
+    def get_details(self):
+        return self.__name, self.__address, self.__contact
+```
+
